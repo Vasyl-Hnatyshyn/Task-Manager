@@ -118,7 +118,7 @@ edit= ed =>{
 render(){
 
     return (
-     <div  id="container">
+     <div  id ="container">
     
     <header>
         <p>Task Manager</p>
@@ -135,13 +135,12 @@ render(){
     <span id="line"> </span>  
         
   <section>
-             
-//modal window        
+      
      <a href="#openModal" id = "taskAdd">Add new task</a>
             
-     <div id="openModal" class="modal">
-       <div class="modal-content">
-       <a href="#close" title="Close" class="close">×</a>
+     <div id="openModal" className="modal">
+       <div className="modal-content">
+       <a href="#close" title="Close" className="close">×</a>
         
        <textarea id="txt"  name="textarea" placeholder="Add your task..."></textarea>
 
@@ -149,20 +148,19 @@ render(){
        
       </div>
     </div>
- 
-//task card gallery
+
 
   <div id = "taskWrapper" > 
             
   {this.state.taskFol.map(task=>{
-    return <div className="taskCard" >   
+    return <div className="taskCard"    >   
   
     <div className ="editTask" onClick={this.edit} > {task.text} </div> 
         
     <span className="uathor">{task.author}</span>     
                           
                     
-      <div class="btnCardBlock">
+      <div className="btnCardBlock">
         
         <img src="https://img.icons8.com/color/48/000000/filled-message.png" alt="mail icon" />
                     
