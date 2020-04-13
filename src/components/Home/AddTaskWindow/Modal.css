@@ -1,0 +1,102 @@
+#modalB_graund {
+    
+    z-index: 222;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100vh;
+    
+}
+
+.modal-content {
+    padding-top: 25px;
+    margin: 220px auto;
+    width:30%;
+    
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    
+} 
+
+
+#taskAdd {
+    text-decoration: none;
+    z-index: 999;
+    animation: radial-pulse 1.2s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, .8);
+    padding: 10px 20px;
+    font-family: 'Patua One', cursive;
+    position: fixed;
+    bottom: 3%;
+    border: none;
+    border-radius: 20px;
+    color: #c31432;
+    font-weight: 800;
+    font-size: 20px;
+    transition: all 0.6;
+    right: 43%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+@keyframes radial-pulse {
+    0% {
+        box-shadow: 0 0 0 0px rgba(225, 225, 225, 0.8);
+    }
+
+    100% {
+        box-shadow: 0 0 0 20px rgba(225, 225, 225, 0);
+    }
+}
+
+
+#close {
+    
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    
+}
+
+
+#txt {
+
+    width: 100%;
+    margin: 6px 0;
+    height: 63%;
+}
+
+
+
+#txt,
+#txt:hover,
+#txt:active {
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-family: 'Patua One', cursive;
+    font-size: 16px;
+    color: black;
+
+}
+
+#modalBtn {
+    font-family: 'Patua One', cursive;
+    display: block;
+    width: 100%;
+    background-color: #c31432;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+

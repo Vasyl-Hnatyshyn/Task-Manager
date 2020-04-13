@@ -1,0 +1,99 @@
+
+
+#taskWrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: 20px auto;
+    padding-bottom: 100px;
+
+}
+
+.taskCard {
+
+    overflow: hidden;
+    padding: 40px;
+    width: 22%;
+    height: 220px;
+    font-family: 'Patua One', cursive;
+    font-size: 18px;
+    color: white;
+    position: relative;
+    transition: all 1s;
+    background-color: rgba(192, 192, 192, .3);
+    margin: 10px 19.2px;
+    border-radius: 10px;
+    transition: all 0.6s;
+
+
+}
+
+.taskCard:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    background-color: rgba(255, 255, 255, .4);
+
+}
+
+.editTask {
+    width: 100%;
+    height: 60%;
+
+}
+
+#changeText,
+#changeText:focus,
+#changeText:hover {
+    width: 100%;
+    height: 80%;
+    background: none;
+    font-family: 'Patua One', cursive;
+    font-size: 18px;
+    color: white;
+    border: none;
+    outline: none;
+
+}
+
+
+
+
+.uathor {
+    position: absolute;
+    width: 40%;
+    padding: 6px 0;
+    background-color: rgba(255, 255, 255, .9);
+    color: rebeccapurple;
+    text-align: center;
+    border-radius: 10px;
+    text-transform: capitalize;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+
+}
+
+.btnCardBlock {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 40%;
+    right: 0;
+    transition: all 0.7s;
+
+}
+
+.btnCardBlock img {
+    width: 38px;
+    cursor: pointer;
+    height: 38px;
+
+}
+
+.taskCard:hover .btnCardBlock {
+    right: 43%;
+}

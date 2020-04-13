@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import fire  from './config/fire';
-import Login  from './Login';
-import Home  from './components/Home';
+import Login  from './components/Login/Login';
+import Home  from './components/Home/Home';
 
 
 class App extends React.Component {
@@ -19,10 +19,6 @@ class App extends React.Component {
    
         this.authListener();
       };  
-  
-    
-
-    
     
 authListener = ()=>{
         
@@ -35,9 +31,7 @@ authListener = ()=>{
             else {
                     this.setState({user: null})
                  }
-            
         })
-    
 }    
     
     render() {
@@ -51,9 +45,6 @@ authListener = ()=>{
         
         </div>
         
-     
-
-    
     );
     }
 }
