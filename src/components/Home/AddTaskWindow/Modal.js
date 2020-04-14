@@ -7,7 +7,7 @@ class Modal extends React.Component {
         
         this.state={
               modalStyle:"none", 
-              newTask:null,    
+              newTask:null   
     };
 
     }
@@ -23,7 +23,8 @@ class Modal extends React.Component {
   closeModal=()=> {
     this.setState({
         
-        modalStyle:"none"
+        modalStyle:"none",
+        newTask: null
         
     })
 }
@@ -51,7 +52,7 @@ return(
     
        <span  id="close" onClick={ this.closeModal}> x </span> 
         
-       <textarea id="txt"  placeholder="Add your task..." onChange={this.newTask}></textarea>
+       <textarea id="txt"  placeholder="Add your task..." onChange={this.newTask}>{this.state.newTask}</textarea>
 
        <a href="#add" onClick={()=> {
        
