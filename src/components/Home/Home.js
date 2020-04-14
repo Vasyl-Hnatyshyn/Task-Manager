@@ -29,8 +29,6 @@ componentDidMount () {
     
     }
 
-    
-
 
 addTaskToFolder=val=> {
   
@@ -74,7 +72,14 @@ removeTask=task=>{const update=this.state.taskFolder.filter(function(item){
                   })
 }
 
- 
+updateTasks=tasks=>{                        
+  localStorage.setItem('task', JSON.stringify(tasks));
+        
+  this.setState({                          
+                taskFolder:tasks
+     })
+}
+
 render(){
 
     return (
@@ -83,15 +88,11 @@ render(){
         
       <Modal  add={this.addTaskToFolder} />
       <Header author={this.state.author} />
-      <Main  taskFolder={this.state.taskFolder } removeTask={this.removeTask }/>
+      <Main  taskFolder={this.state.taskFolder } updateTasks={this.updateTasks } removeTask={this.removeTask }/>
     
      </div>)
 
 };
-    
-    
 }
-          
-
 
 export default Home;

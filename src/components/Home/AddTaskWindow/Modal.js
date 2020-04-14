@@ -51,7 +51,7 @@ return(
     
        <span  id="close" onClick={ this.closeModal}> x </span> 
         
-       <textarea id="txt"  name="textarea" placeholder="Add your task..." onChange={this.newTask}></textarea>
+       <textarea id="txt"  placeholder="Add your task..." onChange={this.newTask}></textarea>
 
        <a href="#add" onClick={()=> {
        

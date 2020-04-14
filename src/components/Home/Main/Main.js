@@ -12,12 +12,6 @@ class Main extends React.Component {
              newName: null,
         };
  }
-
-    
-    
- 
-    
-    
     
 changeName = e => {
  this.setState({ newName: e.target.value})
@@ -25,17 +19,24 @@ changeName = e => {
  
  startEditing = ({ id, name }) => {
     this.setState({ newName: name, editingElementId: id})
+     
+     console.log(this.state.newName)
  }
  
- finishEditing = () => {
-    this.setState((prevState) => ({ newName: null, editingElementId: null, taskFolder: prevState.taskFolder.map((task) => (
-    task.id === prevState.editingElementId ? { ...task, name: prevState.newName} : task
-    ))}))
- }    
-    
+finishEditing = () => {
+const newName = this.state.newName
+console.log(newName)
+   const newTasks = this.props.taskFolder.map((task) => (
+    task.id === this.state.editingElementId ? { ...task, text: newName} : task
+    ))
+   
+    console.log(newTasks)
+    this.props.updateTasks(newTasks)
+   this.setState((prevState) => ({ newName: null, editingElementId: null }))
+ }  
 render(){
 
-const {taskFolder,removeTask}=this.props;
+const {taskFolder ,removeTask}=this.props;
     
     return (
 <section>
@@ -46,10 +47,11 @@ const {taskFolder,removeTask}=this.props;
   {taskFolder.map(task=>{
     return <div className="taskCard" key={task.id}>   
   
-   <div> { this.state.editingElementId ? (
-      <textarea id="changeText" onBlur={this.finishEditing} onChange={this.changeName}>{this.state.newName}</textarea>
+   <div> { this.state.editingElementId ===  task.id? (
+       <textarea id="changeText" onBlur={this.finishEditing} onChange={this.changeName}></textarea> 
     ) : (
-       <div className ="editTask" onClick={() => this.startEditing(task)} > {task.text} </div>
+        <div className ="editTask" onClick={() => this.startEditing(task)} > {task.text} </div> 
+
     )} </div>
         
     <span className="uathor">{task.author}</span>     
@@ -59,8 +61,7 @@ const {taskFolder,removeTask}=this.props;
         
         <img src="https://img.icons8.com/color/48/000000/filled-message.png" alt="mail icon" />
                     
-        <img src="https://img.icons8.com/color/48/000000/multiply.png" alt="close icon"   onClick={()=>{  
-        removeTask(task)
+        <img src="https://img.icons8.com/color/48/000000/multiply.png" alt="close icon"   onClick={()=>{removeTask(task)
         }} />
           
           </div>
