@@ -17,22 +17,23 @@ changeName = e => {
  this.setState({ newName: e.target.value})
  }
  
- startEditing = ({ id, name }) => {
-    this.setState({ newName: name, editingElementId: id})
+ startEditing = ({ id, text }) => {
+    this.setState({ newName: text, editingElementId: id})
      
      console.log(this.state.newName)
  }
  
 finishEditing = () => {
-const newName = this.state.newName
-console.log(newName)
-   const newTasks = this.props.taskFolder.map((task) => (
+    
+    if (this.state.newName!== null){const newName = this.state.newName
+
+    const newTasks = this.props.taskFolder.map((task) => (
     task.id === this.state.editingElementId ? { ...task, text: newName} : task
     ))
    
-    console.log(newTasks)
+   
     this.props.updateTasks(newTasks)
-   this.setState((prevState) => ({ newName: null, editingElementId: null }))
+    this.setState((prevState) => ({ newName: null, editingElementId: null }))}
  }  
 render(){
 
@@ -48,9 +49,9 @@ const {taskFolder ,removeTask}=this.props;
     return <div className="taskCard" key={task.id}>   
   
    <div> { this.state.editingElementId ===  task.id? (
-       <textarea id="changeText" onBlur={this.finishEditing} onChange={this.changeName}></textarea> 
+       <textarea id="changeText" onBlur={this.finishEditing} onChange={this.changeName}  value={this.state.newName}></textarea> 
     ) : (
-        <div className ="editTask" onClick={() => this.startEditing(task)} > {task.text} </div> 
+        <p className ="editTask" onClick={() => this.startEditing(task)} > {task.text} </p> 
 
     )} </div>
         

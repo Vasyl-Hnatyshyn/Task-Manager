@@ -1,8 +1,13 @@
+
+
+
 #box{
     background: linear-gradient(to bottom, #c31432, #240b36);
     width: 100%;
-   width: 100%;
-    display: block;
+    min-height: 800px;
+   
+   
+   
 
 }
 
@@ -14,12 +19,10 @@ form input,form input:hover,form input:active{
     padding: 12px 15px;
     margin-bottom: 20px;
     border: none;
-    color: black;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: 16px;
     outline: none;
-
-}
+    }
 
 form button {
    
@@ -40,15 +43,16 @@ form input:focus {
   
  background-color: rgba(225, 225, 225, 0.8);
     color: black;
-    border: 2px solid dimgrey;
+    border-color:  dimgrey;
     font-weight: 500;
+    border: 2px solid dimgrey;
 }
 
 form {
-    padding: 12% 0 18% 0;
+    padding: 8% 0 18% 0;
     margin:  0 auto;
     width: 25%;
-    height: 100%;
+    min-height: 800px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -69,11 +73,12 @@ form {
 }
 
 form p {
-    
+     position: absolute;
     font-size: 33px;
     font-weight: 600;
     color: white;
-    margin: 30px 0px 20px -160px;
+    top: 22%;
+    left: 39%;
     letter-spacing: 3px;
     font-family: 'Lora', serif;
 }

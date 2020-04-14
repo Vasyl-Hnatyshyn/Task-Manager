@@ -1,6 +1,5 @@
 import React from 'react';
 import fire from '../../config/fire';
-
 import './Login.css';
 
 
@@ -9,20 +8,22 @@ class Login extends React.Component {
         super()
         this.state={
             email:"",
-            password:""
-            
-            
+            password:"",
+            paswEror:{
+                       color: "black",
+                       border: "2px solid transparent"
+                    }
+ 
         }
     }
     
 logIn=(e)=>{
     e.preventDefault();
-    
-     
+ 
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((a)=>{
-        console.log(a)
+       
     }).catch((err)=>{
-        console.log(err)
+       alert(err)
     })
     
 };
@@ -32,12 +33,49 @@ singUp=(e)=>{
     e.preventDefault();
    
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((a)=>{
-        console.log(a)
+
     }).catch((err)=>{
-        console.log(err)
+        alert(err)
     })
     
 };
+
+
+filterEmail=(e)=>{
+    if(e.target.value.includes('@')!==true){
+        e.target.value= "";
+        e.target.placeholder = " this is not an email "
+         this.setState({
+            paswEror:{
+                        color: "red",
+                        border: "2px solid red"
+                    }
+                      
+        })
+
+        
+       
+    }
+   
+}
+
+filterPassword=(e)=>{
+    if(e.target.value.length < 6) {
+        e.target.value= ""
+        e.target.placeholder = " too short... "
+       
+        this.setState({
+            paswEror:{
+                        color: "red",
+                        border: "2px solid red"
+                    }
+                      
+        })
+
+   
+    } 
+   
+}
     
     
 inputChanges = (e) => {
@@ -50,11 +88,7 @@ inputChanges = (e) => {
    
 }    
     
-    
-
-
-    
-    
+      
 render(){
     
     return   (<div  id="box" >
@@ -68,16 +102,18 @@ render(){
               type = "email"  
               placeholder = " Email..."
               id="email" 
-              value= {this.state.email}
-              onChange={this.inputChanges}  / >
+               style={this.state.paswEror}
+              onChange={this.inputChanges}
+              onBlur={this.filterEmail} / >
                 
             <input 
               name = "password"
               type = "password"  
               placeholder = "Password..."
-              id="password" 
-              value= {this.state.password}
-              onChange={this.inputChanges}  / >
+              id="password"
+              style={this.state.paswEror}
+              onChange={this.inputChanges} 
+              onBlur={this.filterPassword} / >
                 
               <div id="logBtn_wrapper">
             <button id = "btn-singIn" onClick={this.logIn}> LogIn </button>
@@ -90,7 +126,6 @@ render(){
 
 }
 }
-          
 
 
 export default Login;

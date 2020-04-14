@@ -2,45 +2,54 @@ import React from 'react';
 import './Modal.css';
 
 class Modal extends React.Component {
-     constructor(){
-        super();
+     constructor(props){
+        super(props);
         
         this.state={
               modalStyle:"none", 
-              newTask:null   
+              newTask:""   
     };
 
     }
 
+    
   showModal=()=>{
     this.setState({
         
-        modalStyle:"block"
+        modalStyle:"block",
+
         
     })
 }
   
   closeModal=()=> {
     this.setState({
-        
         modalStyle:"none",
-        newTask: null
+        newTask:"" 
+        
         
     })
 }
    
    newTask=(e)=>{
-     
+   
      this.setState({
          
          newTask:e.target.value
      })
+       
+       
  }
+   
+addTaskToFolder=()=>{
+       
+    this.props.add(this.state.newTask)
+    this.closeModal();
+   
+}   
 
    
  render () {
-
-const {add} = this.props;
  
 return(
   <div>
@@ -50,16 +59,16 @@ return(
     
     <div className="modal-content"  >
     
-       <span  id="close" onClick={ this.closeModal}> x </span> 
+       <span  id="close" onClick={ this.closeModal}>&times; </span> 
         
-       <textarea id="txt"  placeholder="Add your task..." onChange={this.newTask}>{this.state.newTask}</textarea>
+    <textarea id="txt"  placeholder="Add your task..." onChange={this.newTask} value={this.state.newTask}></textarea>
+    
+    
+    {this.state.newTask ?  
+     <a href="#" onClick={this.addTaskToFolder} id ="modalBtn"> add </a>:
+    <p id="errorMessage"> Your task is empty... </p>}
 
-       <a href="#add" onClick={()=> {
-       
-       add(this.state.newTask)
-       
-       this.closeModal();
-      }} id ="modalBtn"> add </a>
+
     </div>
     
  </div>

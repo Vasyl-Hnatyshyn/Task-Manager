@@ -1,7 +1,7 @@
 #container {
     background: linear-gradient(to bottom, #c31432, #240b36);
     width: 100%;
-    min-height: 700px;
+    min-height: 800px;
     display: block;
     padding-bottom: 150px;
 }

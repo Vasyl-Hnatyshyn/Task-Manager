@@ -18,14 +18,12 @@ class Home extends React.Component {
 
     
 componentDidMount () {
-    let userEmail = localStorage.getItem('name'); 
-     
-    const user = userEmail.slice(0, userEmail.indexOf('@'))
-    
-    this.setState({ 
-            author: user,
-        });
-       this.getFromStorageTasks(); 
+    const userEmail = localStorage.getItem('name'); 
+    const user = userEmail ? userEmail.slice(0, userEmail.indexOf('@')) : ''
+   this.setState({ 
+      author: user,
+   });
+this.getFromStorageTasks();
     
     }
 
