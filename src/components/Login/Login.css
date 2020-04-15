@@ -72,7 +72,7 @@ form {
 
 }
 
-form p {
+#label {
      position: absolute;
     font-size: 33px;
     font-weight: 600;

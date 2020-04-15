@@ -19,8 +19,7 @@ changeName = e => {
  
  startEditing = ({ id, text }) => {
     this.setState({ newName: text, editingElementId: id})
-     
-     console.log(this.state.newName)
+    
  }
  
 finishEditing = () => {
